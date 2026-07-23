@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industrial Automation | PLC | DCS | SCADA | HMI | IIoT | SAP & ERP Integration</title>
+
+  <!-- External Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* =====================================================
+       GLOBAL RESET AND THEME VARIABLES
+    ===================================================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --blue: #0070c0;
+      --blue-dark: #004e89;
+      --blue-deep: #062f67;
+      --blue-lt: #e8f3fb;
+      --orange: #ff6b00;
+      --black: #1a1a1a;
+      --gray: #5a5a5a;
+      --gray-lt: #f5f6f8;
+      --border: #e0e4ec;
+      --white: #ffffff;
+      --shadow: 0 4px 18px rgba(0, 80, 180, 0.08);
+      --container: 1180px;
+      --nav-h: 82px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      overflow-x: hidden;
+      background: var(--white);
+      color: var(--black);
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    section {
+      padding: 72px 48px;
+    }
+
+    h2 {
+      color: #111827;
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .section-label {
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .industries > .section-label,
+    .resources > .section-label {
+      font-size: 14px;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--gray);
+      text-align: center;
+    }
+
+    /* =====================================================
+       TOP ACCENT STRIP
+    ===================================================== */
+    .orange-strip {
+      height: 4px;
+      background: var(--orange);
+    }
+
+    /* =====================================================
+       NAVIGATION BAR
+    ===================================================== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: var(--nav-h);
+      padding: 0 60px;
+      border-bottom: 1px solid #ececec;
+      background: var(--white);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+    }
+
+    .logo {
+      width: auto;
+      height: 56px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      gap: 34px;
+      margin: 0 48px;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      position: relative;
+      color: #111111;
+      font-size: 15px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: var(--blue);
+    }
+
+    .nav-links li a.active {
+      font-weight: 600;
+    }
+
+    .nav-links li a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -12px;
+      width: 100%;
+      height: 3px;
+      border-radius: 20px;
+      background: var(--blue);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      background: #006fd6;
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background 0.25s ease;
+    }
+
+    .nav-cta:hover {
+      background: #0058b0;
+    }
+
+    .nav-cta span {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    /* =====================================================
+       HERO SECTION
+    ===================================================== */
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      min-height: 500px;
+      padding: 0 60px;
+      overflow: hidden;
+      background: #062f67 url("assets/images/hero-banner.png") center center / cover no-repeat;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(90deg, rgba(2, 20, 48, 0.82) 0%, rgba(2, 20, 48, 0.58) 48%, rgba(2, 20, 48, 0.22) 100%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(420px, 40%);
+      margin-left: 30px;
+      margin-top: -15px;
+    }
+
+    .hero h1 {
+      margin-bottom: 16px;
+      color: var(--white);
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.3px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .hero h1 .hero-blue {
+      color: #1f8cff;
+    }
+
+    .hero p {
+      max-width: 400px;
+      margin-bottom: 26px;
+      color: #e9eef8;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 0 30px;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .btn-primary {
+      background: #1f78ff;
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #1565e8;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: transparent;
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* =====================================================
+       ABOUT SNAPSHOT SECTION
+    ===================================================== */
+    .about-snapshot {
+      padding: 64px 48px;
+      background: var(--white);
+    }
+
+    .about-panel {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 36px;
+      border: 1px solid rgba(0, 112, 192, 0.12);
+      border-radius: 18px;
+      background: linear-gradient(135deg, #ffffff 0%, #f4f9ff 100%);
+      box-shadow: 0 18px 48px rgba(7, 45, 103, 0.08);
+    }
+
+    .about-panel h2 {
+      margin-bottom: 14px;
+      text-align: left;
+    }
+
+    .about-panel p {
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+    .about-points {
+      display: grid;
+      gap: 14px;
+    }
+
+    .about-point {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid rgba(0, 112, 192, 0.12);
+      border-radius: 14px;
+      background: var(--white);
+    }
+
+    .about-point i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--blue-lt);
+      color: var(--blue);
+      font-size: 18px;
+    }
+
+    .about-point strong {
+      display: block;
+      color: #111827;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .about-point span {
+      color: var(--gray);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    /* =====================================================
+       SERVICES SUMMARY SECTION
+    ===================================================== */
+    .automation-services {
+      padding: 36px 48px 0;
+      background: var(--white);
+    }
+
+    .services-heading {
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .section-tag {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .section-tag .line {
+      width: 34px;
+      height: 2px;
+      background: #0068d9;
+    }
+
+    .section-tag span:last-child {
+      color: #0068d9;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .services-heading h2 {
+      margin-bottom: 8px;
+      font-size: 30px;
+    }
+
+    .services-heading p {
+      margin: 0 auto;
+      color: #4d5562;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1740px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      min-height: 172px;
+      padding: 24px 10px 18px;
+      border: 1px solid #e1e5eb;
+      border-radius: 4px;
+      background: var(--white);
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(20, 35, 60, 0.06);
+    }
+
+    .icon-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      margin: 0 auto 12px;
+      color: #0068c9;
+    }
+
+    .icon-wrap i {
+      color: #0068c9;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .sap-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      background: #0068c9;
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .service-card h3 {
+      margin-bottom: 8px;
+      color: #172233;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .service-card p {
+      margin: 0 auto;
+      color: #53606c;
+      font-size: 9px;
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    /* =====================================================
+       BLUE STATS BAR
+    ===================================================== */
+    .stats-strip {
+      padding: 25px 48px;
+      background: var(--blue-deep);
+    }
+
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: center;
+      width: 100%;
+      max-width: 1560px;
+      margin: 0 auto;
+    }
+
+    .stats-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      min-height: 72px;
+      padding: 0 34px;
+    }
+
+    .stats-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 1px;
+      height: 58px;
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-50%);
+    }
+
+    .stats-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 44px;
+      width: 44px;
+      height: 44px;
+    }
+
+    .stats-icon i {
+      color: #1687ff;
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .stats-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .number-stat h4 {
+      margin-bottom: 5px;
+      color: var(--white);
+      font-size: 25px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .number-stat span {
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .text-stat h4,
+    .text-stat span {
+      margin: 0;
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.28;
+    }
+
+    /* =====================================================
+       AUTOMATION SERVICES GRID WITH IMAGES
+       Note: all image URLs are unchanged from the provided code.
+    ===================================================== */
+    .automation-services-section {
+      width: 100%;
+      padding: 34px 42px 38px;
+      background: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .automation-title {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
+      padding: 0 16px;
+    }
+
+    .automation-title span {
+      width: 360px;
+      padding: 7px 24px;
+      border-radius: 22px;
+      background: #07539f;
+      color: var(--white);
+      text-align: center;
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .automation-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .automation-card {
+      position: relative;
+      min-height: 300px;
+      overflow: hidden;
+      border: 2px solid #d7e1ee;
+      border-radius: 16px;
+      background: var(--white);
+      box-shadow: 0 8px 24px rgba(7, 45, 103, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .automation-card:hover {
+      border-color: rgba(0, 112, 192, 0.38);
+      box-shadow: 0 18px 42px rgba(7, 45, 103, 0.16);
+      transform: translateY(-6px);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+      border-bottom: 2px solid #d7e1ee;
+      background: #e9edf3;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .automation-card:hover .card-image img {
+      transform: scale(1.06);
+    }
+
+    .card-icon {
+      position: absolute;
+      top: 124px;
+      left: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border: 4px solid var(--white);
+      border-radius: 50%;
+      background: #075db7;
+      color: var(--white);
+      font-size: 26px;
+      box-shadow: 0 8px 18px rgba(7, 93, 183, 0.3);
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .automation-card:hover .card-icon {
+      background: #004e89;
+      transform: scale(1.06);
+    }
+
+    .automation-card h3 {
+      margin: 36px 14px 9px;
+      color: #071d39;
+      font-size: 19px;
+      font-weight: 900;
+      line-height: 1.12;
+      text-transform: uppercase;
+    }
+
+    .automation-card p {
+      margin: 0 14px 14px;
+      color: #263444;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.38;
+    }
+
+    .promise-row {
+      display: grid;
+      grid-template-columns: 2.2fr repeat(4, 1fr) 2.1fr;
+      gap: 18px;
+      width: 100%;
+      margin: 18px 0 0;
+      padding: 0;
+      align-items: stretch;
+    }
+
+    .promise-main,
+    .promise-cta {
+      min-height: 96px;
+      border-radius: 14px;
+      background: #07539f;
+      color: var(--white);
+      box-shadow: 0 8px 24px rgba(7, 45, 103, 0.12);
+    }
+
+    .promise-main {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 18px;
+    }
+
+    .promise-target {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border: 4px solid var(--white);
+      border-radius: 50%;
+      font-size: 34px;
+    }
+
+    .promise-main h4,
+    .promise-cta h4 {
+      margin-bottom: 5px;
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .promise-main p {
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .promise-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 96px;
+      border: 2px solid #d7e1ee;
+      border-radius: 14px;
+      background: var(--white);
+      color: #07539f;
+      text-align: center;
+      box-shadow: 0 8px 22px rgba(7, 45, 103, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .promise-item:hover {
+      border-color: rgba(0, 112, 192, 0.38);
+      box-shadow: 0 16px 36px rgba(7, 45, 103, 0.14);
+      transform: translateY(-4px);
+    }
+
+    .promise-item i {
+      margin-bottom: 6px;
+      font-size: 38px;
+    }
+
+    .promise-item span {
+      color: #263444;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.12;
+    }
+
+    .promise-cta {
+      padding: 14px 16px;
+    }
+
+    .promise-cta h4 {
+      font-size: 17px;
+    }
+
+    .promise-cta p {
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .promise-cta i {
+      width: 14px;
+    }
+
+    /* =====================================================
+       INDUSTRIES SECTION
+    ===================================================== */
+    .industries {
+      position: relative;
+      background: linear-gradient(180deg, #f7f9fc 0%, #eef4fb 100%);
+    }
+
+    .industries h2 {
+      margin-bottom: 8px;
+    }
+
+    .industries .lead {
+      margin-bottom: 40px;
+    }
+
+    .ind-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+
+    .ind-card {
+      position: relative;
+      padding: 28px 24px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 112, 192, 0.12);
+      border-radius: 16px;
+      background: var(--white);
+      cursor: pointer;
+      box-shadow: 0 10px 28px rgba(7, 45, 103, 0.06);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .ind-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: var(--blue);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .ind-card:hover {
+      border-color: rgba(0, 112, 192, 0.32);
+      box-shadow: 0 18px 42px rgba(7, 45, 103, 0.14);
+      transform: translateY(-5px);
+    }
+
+    .ind-card:hover::before {
+      opacity: 1;
+    }
+
+    .ind-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+      border-radius: 14px;
+      background: var(--blue-lt);
+      color: var(--blue);
+      font-size: 22px;
+    }
+
+    .ind-card h4 {
+      margin-bottom: 8px;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .ind-card p {
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .ind-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 12px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* =====================================================
+       RESOURCES SECTION
+    ===================================================== */
+    .resources {
+      background: var(--white);
+    }
+
+    .resources h2 {
+      margin-bottom: 40px;
+    }
+
+    .res-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+
+    .res-card {
+      overflow: hidden;
+      border: 1px solid rgba(0, 112, 192, 0.12);
+      border-radius: 16px;
+      background: var(--white);
+      box-shadow: 0 10px 28px rgba(7, 45, 103, 0.06);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .res-card:hover {
+      border-color: rgba(0, 112, 192, 0.32);
+      box-shadow: 0 18px 42px rgba(7, 45, 103, 0.14);
+      transform: translateY(-5px);
+    }
+
+    .res-img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 140px;
+      color: var(--blue);
+      font-size: 36px;
+    }
+
+    .res-body {
+      padding: 20px;
+    }
+
+    .res-type {
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .res-card h4 {
+      margin-bottom: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .res-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .res-cta:hover {
+      text-decoration: underline;
+    }
+
+    /* =====================================================
+       TESTIMONIAL SECTION
+    ===================================================== */
+    .testimonial {
+      padding: 72px 48px;
+      background: linear-gradient(180deg, #f7f9fc 0%, #eef4fb 100%);
+    }
+
+    .test-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 38px 42px;
+      border: 1px solid rgba(0, 112, 192, 0.14);
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: 0 18px 48px rgba(7, 45, 103, 0.1);
+      text-align: center;
+    }
+
+    .test-quote {
+      margin-bottom: 24px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    blockquote {
+      position: relative;
+      margin-bottom: 24px;
+      color: var(--black);
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    blockquote::before {
+      content: "\201C";
+      margin-right: 4px;
+      color: var(--blue);
+      font-size: 80px;
+      line-height: 0.3;
+      vertical-align: -0.4em;
+    }
+
+    /* =====================================================
+       CALL TO ACTION SECTION
+    ===================================================== */
+    .cta-banner {
+      padding: 72px 48px;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 32%),
+        linear-gradient(135deg, var(--blue-dark), var(--blue));
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      margin-bottom: 12px;
+      color: var(--white);
+      font-size: 34px;
+    }
+
+    .cta-banner p {
+      margin-bottom: 32px;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 18px;
+    }
+
+    /* =====================================================
+       FOOTER SECTION
+    ===================================================== */
+    footer {
+      padding: 56px 48px 32px;
+      background: #111827;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .sp-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: var(--blue);
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    .footer-logo {
+      width: auto;
+      height: 46px;
+      object-fit: contain;
+    }
+
+    .footer-brand p {
+      max-width: 260px;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .footer-col h5 {
+      margin-bottom: 16px;
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 13px;
+      transition: color 0.15s ease;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--white);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 13px;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .social-link:hover {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 12px;
+    }
+
+    .footer-bottom a {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .footer-bottom a:hover {
+      color: var(--white);
+    }
+
+    /* =====================================================
+       SCROLL REVEAL ANIMATION STATES
+    ===================================================== */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =====================================================
+       RESPONSIVE STYLES
+    ===================================================== */
+    @media (max-width: 1200px) {
+      nav {
+        padding: 0 28px;
+      }
+
+      .nav-links {
+        gap: 22px;
+        margin: 0 28px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 992px) {
+      section,
+      .automation-services,
+      .automation-services-section,
+      .stats-strip,
+      .testimonial,
+      .cta-banner,
+      footer {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        height: auto;
+        padding: 20px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        margin: 0;
+      }
+
+      .hero {
+        min-height: 440px;
+        padding: 60px 40px;
+      }
+
+      .hero-inner {
+        width: min(520px, 70%);
+        margin: 0;
+      }
+
+      .services-grid,
+      .automation-grid,
+      .stats-container,
+      .about-panel,
+      .ind-grid,
+      .res-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .promise-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .promise-main,
+      .promise-cta {
+        grid-column: span 2;
+      }
+
+      .stats-item:not(:last-child)::after {
+        display: none;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 26px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 70px 20px;
+        background-position: center;
+      }
+
+      .hero-inner {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero h1 span {
+        white-space: normal;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        width: 240px;
+      }
+
+      .services-grid,
+      .automation-grid,
+      .stats-container,
+      .about-panel,
+      .ind-grid,
+      .res-grid,
+      .promise-row,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .promise-main,
+      .promise-cta {
+        grid-column: auto;
+      }
+
+      .stats-item {
+        justify-content: flex-start;
+        padding: 16px 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      section,
+      .automation-services,
+      .automation-services-section,
+      .stats-strip,
+      .testimonial,
+      .cta-banner,
+      footer {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .automation-title span {
+        width: 100%;
+        font-size: 14px;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =====================================================
+       TOP ACCENT STRIP
+  ===================================================== -->
+  <div class="orange-strip"></div>
+
+  <!-- =====================================================
+       NAVIGATION
+  ===================================================== -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logo.png" alt="SP Global Tech" class="logo">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#automation-solutions">Industries</a></li>
+      <li><a href="#industries">Solutions</a></li>
+      <li><a href="#resources">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="nav-cta">
+      Get in Touch
+      <span>&rarr;</span>
+    </a>
+  </nav>
+
+  <!-- =====================================================
+       HERO SECTION
+  ===================================================== -->
+  <header class="hero" id="home">
+    <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
+      <source src="assets/video/homepage.mp4" type="video/mp4">
+    </video>
+    <div class="hero-inner">
+      <h1>
+        DRIVING SMARTER<br>
+        <span class="hero-blue">MANUFACTURING</span>
+        <span>THROUGH AUTOMATION</span>
+      </h1>
+
+      <p>
+        We help manufacturers improve productivity, reduce downtime,
+        and streamline operations through reliable automation
+        and ERP integration solutions.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#services" class="btn-primary">Our Services &rarr;</a>
+        <a href="assets/brochure/SP-Global-Tech-Brochure.pdf" class="btn-outline" download>
+          Download Brochure &#x2b07;
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================
+       ABOUT SNAPSHOT
+  ===================================================== -->
+  <section class="about-snapshot" id="about">
+    <div class="about-panel">
+      <div>
+        <div class="section-label" style="text-align:left;">About Us</div>
+        <h2>Industrial Automation Built for Reliable Operations</h2>
+        <p>
+          SP Global Tech helps manufacturing teams modernize operations with practical automation,
+          ERP integration, IIoT connectivity and dependable support. Our focus is simple:
+          improve uptime, reduce manual effort and make every system easier to manage.
+        </p>
+      </div>
+
+      <div class="about-points">
+        <div class="about-point">
+          <i class="fa-solid fa-diagram-project"></i>
+          <div>
+            <strong>End-to-End Delivery</strong>
+            <span>Planning, implementation, commissioning and support.</span>
+          </div>
+        </div>
+
+        <div class="about-point">
+          <i class="fa-solid fa-chart-line"></i>
+          <div>
+            <strong>Measurable Impact</strong>
+            <span>Solutions focused on uptime, productivity and visibility.</span>
+          </div>
+        </div>
+
+        <div class="about-point">
+          <i class="fa-solid fa-headset"></i>
+          <div>
+            <strong>Local Support</strong>
+            <span>Hands-on assistance for teams after go-live.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SERVICES SUMMARY CARDS
+  ===================================================== -->
+  <section class="automation-services" id="services">
+    <div class="services-heading">
+      <div class="section-tag">
+        <span class="line"></span>
+        <span>OUR SERVICES</span>
+      </div>
+
+      <h2>End-to-End Automation Solutions</h2>
+      <p>Comprehensive services to help your business automate, integrate and scale efficiently.</p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="icon-wrap"><i class="fa-solid fa-microchip"></i></div>
+        <h3>PLC Programming &<br>Troubleshooting</h3>
+        <p>Efficient PLC solutions for<br>various industrial applications.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="icon-wrap"><i class="fa-solid fa-network-wired"></i></div>
+        <h3>DCS Support &<br>Modifications</h3>
+        <p>Expert support and<br>customization for DCS<br>systems.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="icon-wrap"><i class="fa-solid fa-desktop"></i></div>
+        <h3>SCADA & HMI<br>Development</h3>
+        <p>Real-time monitoring and<br>visualization with intuitive<br>interfaces.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="icon-wrap"><i class="fa-solid fa-robot"></i></div>
+        <h3>Machine<br>Commissioning</h3>
+        <p>Reliable commissioning<br>ensuring smooth start-up<br>and performance.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="icon-wrap"><i class="fa-solid fa-tower-broadcast"></i></div>
+        <h3>Industrial IoT<br>(IIoT)</h3>
+        <p>Connect, monitor and<br>analyze data for smarter<br>decisions.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="icon-wrap sap-icon">SAP</div>
+        <h3>ERP Integration<br>(SAP B1, Odoo, ERPNext)</h3>
+        <p>Seamless integration with<br>leading ERP platforms.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="icon-wrap"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+        <h3>Annual Maintenance<br>Contracts (AMC)</h3>
+        <p>Preventive maintenance<br>and 24/7 support for<br>maximum uptime.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       BLUE STATS BAR
+  ===================================================== -->
+  <section class="stats-strip" aria-label="Company statistics">
+    <div class="stats-container">
+      <div class="stats-item">
+        <div class="stats-icon"><i class="fa-solid fa-users"></i></div>
+        <div class="stats-content number-stat">
+          <h4>100+</h4>
+          <span>Projects Delivered</span>
+        </div>
+      </div>
+
+      <div class="stats-item">
+        <div class="stats-icon"><i class="fa-solid fa-industry"></i></div>
+        <div class="stats-content number-stat">
+          <h4>25+</h4>
+          <span>Industries Served</span>
+        </div>
+      </div>
+
+      <div class="stats-item">
+        <div class="stats-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="stats-content text-stat">
+          <h4>Reliable</h4>
+          <span>Support</span>
+        </div>
+      </div>
+
+      <div class="stats-item">
+        <div class="stats-icon"><i class="fa-solid fa-chart-column"></i></div>
+        <div class="stats-content text-stat">
+          <h4>Improved</h4>
+          <span>Productivity</span>
+        </div>
+      </div>
+
+      <div class="stats-item">
+        <div class="stats-icon"><i class="fa-regular fa-clock"></i></div>
+        <div class="stats-content text-stat">
+          <h4>Reduced</h4>
+          <span>Downtime</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       IMAGE BASED AUTOMATION SERVICES
+  ===================================================== -->
+  <section class="automation-services-section" id="automation-solutions">
+    <div class="automation-title">
+      <span>OUR AUTOMATION SERVICES</span>
+    </div>
+
+    <div class="automation-grid">
+      <article class="automation-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80" alt="PLC and DCS automation">
+        </div>
+        <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+        <h3>PLC & DCS<br>AUTOMATION</h3>
+        <p>Design, programming, installation and commissioning of PLC, DCS and SCADA systems to optimize your industrial operations.</p>
+      </article>
+
+      <article class="automation-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="SCADA and HMI solutions">
+        </div>
+        <div class="card-icon"><i class="fa-solid fa-desktop"></i></div>
+        <h3>SCADA & HMI<br>SOLUTIONS</h3>
+        <p>Real-time monitoring, data visualization and control solutions for better decision-making and process efficiency.</p>
+      </article>
+
+      <article class="automation-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=900&q=80" alt="Industrial robotics and motion control">
+        </div>
+        <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+        <h3>INDUSTRIAL ROBOTICS<br>& MOTION CONTROL</h3>
+        <p>Robotic integration, motion control and drives solutions to improve precision, productivity and safety.</p>
+      </article>
+
+      <article class="automation-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="IIoT and Industry 4.0 solutions">
+        </div>
+        <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
+        <h3>IIOT & INDUSTRY 4.0<br>SOLUTIONS</h3>
+        <p>Connect, collect and analyze data to enable smart factories and predictive maintenance for sustainable growth.</p>
+      </article>
+
+      <article class="automation-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80" alt="Electrical and instrumentation">
+        </div>
+        <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+        <h3>ELECTRICAL &<br>INSTRUMENTATION</h3>
+        <p>Complete electrical, instrumentation and panel manufacturing solutions as per industry standards.</p>
+      </article>
+
+      <article class="automation-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="System integration">
+        </div>
+        <div class="card-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+        <h3>SYSTEM INTEGRATION</h3>
+        <p>End-to-end system integration services that ensure seamless communication and maximum operational efficiency.</p>
+      </article>
+
+      <article class="automation-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Data analytics and reporting">
+        </div>
+        <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>DATA ANALYTICS &<br>REPORTING</h3>
+        <p>Turn your data into actionable insights with advanced analytics and customized reporting dashboards.</p>
+      </article>
+
+      <article class="automation-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=900&q=80" alt="Support and maintenance">
+        </div>
+        <div class="card-icon"><i class="fa-solid fa-headset"></i></div>
+        <h3>SUPPORT &<br>MAINTENANCE</h3>
+        <p>24/7 technical support and AMC services to ensure smooth, uninterrupted and reliable operations.</p>
+      </article>
+    </div>
+
+    <div class="promise-row">
+      <div class="promise-main">
+        <div class="promise-target"><i class="fa-solid fa-bullseye"></i></div>
+        <div>
+          <h4>OUR PROMISE</h4>
+          <p>Smart Solutions.<br>Stronger Operations.<br>Sustainable Growth.</p>
+        </div>
+      </div>
+
+      <div class="promise-item">
+        <i class="fa-solid fa-gears"></i>
+        <span>Efficiency<br>Improved</span>
+      </div>
+
+      <div class="promise-item">
+        <i class="fa-solid fa-arrow-down"></i>
+        <span>Cost<br>Reduced</span>
+      </div>
+
+      <div class="promise-item">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Safety<br>Enhanced</span>
+      </div>
+
+      <div class="promise-item">
+        <i class="fa-solid fa-chart-column"></i>
+        <span>Growth<br>Accelerated</span>
+      </div>
+
+      <div class="promise-cta">
+        <h4>LET'S AUTOMATE<br>A BETTER TOMORROW</h4>
+        <p>
+          <i class="fa-solid fa-envelope"></i> info@spglobaltech.co.in<br>
+          <i class="fa-solid fa-globe"></i> www.spglobaltech.com
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       INDUSTRIES SECTION
+  ===================================================== -->
+  <section class="industries" id="industries">
+    <div class="section-label">Industries We Serve</div>
+    <h2>Built for Your Industry</h2>
+    <p class="lead">Our automation and digital transformation solutions are tailored for the unique challenges of each sector we serve.</p>
+
+    <div class="ind-grid">
+      <article class="ind-card">
+        <div class="ind-icon"><i class="fa-solid fa-industry"></i></div>
+        <h4>Paper Manufacturing</h4>
+        <p>Streamline production with process automation, real-time quality monitoring and supply chain ERP integration - all on time and within budget.</p>
+        <span class="ind-more">Explore solutions &rarr;</span>
+      </article>
+
+      <article class="ind-card">
+        <div class="ind-icon"><i class="fa-solid fa-gas-pump"></i></div>
+        <h4>Oil & Gas</h4>
+        <p>Increase operational transparency, reduce downtime and maintain regulatory compliance with SCADA, HMI and IoT-enabled monitoring systems.</p>
+        <span class="ind-more">Explore solutions &rarr;</span>
+      </article>
+
+      <article class="ind-card">
+        <div class="ind-icon"><i class="fa-solid fa-hospital"></i></div>
+        <h4>Healthcare</h4>
+        <p>Maintain reliable quality control, automate inventory management and implement SAP to meet the high standards of healthcare manufacturing.</p>
+        <span class="ind-more">Explore solutions &rarr;</span>
+      </article>
+
+      <article class="ind-card">
+        <div class="ind-icon"><i class="fa-solid fa-plug"></i></div>
+        <h4>Discrete Manufacturing</h4>
+        <p>From assembly line automation to real-time production tracking - improve efficiency and get products to market faster.</p>
+        <span class="ind-more">Explore solutions &rarr;</span>
+      </article>
+
+      <article class="ind-card">
+        <div class="ind-icon"><i class="fa-solid fa-seedling"></i></div>
+        <h4>Food & Beverage</h4>
+        <p>Automate batch controls, maintain traceability and integrate ERP to stay compliant while improving throughput across your facilities.</p>
+        <span class="ind-more">Explore solutions &rarr;</span>
+      </article>
+
+      <article class="ind-card">
+        <div class="ind-icon"><i class="fa-solid fa-bolt"></i></div>
+        <h4>Utilities & Energy</h4>
+        <p>Deploy smart grid monitoring, predictive maintenance and DCS automation to maximize uptime and reduce operational costs.</p>
+        <span class="ind-more">Explore solutions &rarr;</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       RESOURCES SECTION
+  ===================================================== -->
+  <section class="resources" id="resources">
+    <div class="section-label">Resources</div>
+    <h2>What We're Doing in Manufacturing</h2>
+
+    <div class="res-grid">
+      <article class="res-card">
+        <div class="res-img" style="background:#e8f3fb;"><i class="fa-regular fa-file-lines"></i></div>
+        <div class="res-body">
+          <div class="res-type">Case Study</div>
+          <h4>Streamlining Supply Chain for a Paper Manufacturer - On Time & On Budget</h4>
+          <a href="#" class="res-cta">Download Case Study &rarr;</a>
+        </div>
+      </article>
+
+      <article class="res-card">
+        <div class="res-img" style="background:#fff3e8;"><i class="fa-solid fa-book-open"></i></div>
+        <div class="res-body">
+          <div class="res-type">Whitepaper</div>
+          <h4>Mastering Digital Transformation in Industrial Manufacturing with SAP B1</h4>
+          <a href="#" class="res-cta">Download Whitepaper &rarr;</a>
+        </div>
+      </article>
+
+      <article class="res-card">
+        <div class="res-img" style="background:#e8f5f0;"><i class="fa-solid fa-bullseye"></i></div>
+        <div class="res-body">
+          <div class="res-type">Guide</div>
+          <h4>5 Signs Your Manufacturing Operations Need a Digital Transformation</h4>
+          <a href="#" class="res-cta">Download Guide &rarr;</a>
+        </div>
+      </article>
+
+      <article class="res-card">
+        <div class="res-img" style="background:#f3e8fb;"><i class="fa-regular fa-lightbulb"></i></div>
+        <div class="res-body">
+          <div class="res-type">Blog</div>
+          <h4>How IoT and Industry 4.0 Are Reshaping Oil & Gas Operations in 2025</h4>
+          <a href="#" class="res-cta">Read More &rarr;</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       TESTIMONIAL SECTION
+  ===================================================== -->
+  <section class="testimonial">
+    <div class="test-inner">
+      <div class="test-quote">Customer Story</div>
+      <blockquote>
+        SP Global Tech transformed the way we operate. Their manufacturing ERP expertise is truly in a league of its own - they delivered a seamless supply chain solution on time, within budget, and backed it with outstanding local support every step of the way.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CTA SECTION
+  ===================================================== -->
+  <section class="cta-banner" id="contact">
+    <h2>Your Manufacturing Journey Starts Here</h2>
+    <p>Start building smarter, more efficient operations with ready-now solutions. Speak to an SP Global Tech expert today.</p>
+    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40spglobaltech.co.in" target="_blank" class="btn-primary">Request a Consultation</a>
+  </section>
+
+  <!-- =====================================================
+       FOOTER SECTION
+  ===================================================== -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:16px;">
+          <img src="assets/images/logo.png" alt="SP Global Tech" class="footer-logo">
+          <span style="color:white;font-size:18px;">SP Global Tech</span>
+        </div>
+        <p>SAP Implementation & Automation. Industrial Automation, PLC, SCADA, HMI, Industry 4.0, IoT, ERP & Digital Transformation.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,.5);font-style:italic;">Global Reach, Local Expertise.</p>
+        <div class="social-links">
+          <a href="#contact" class="social-link">in</a>
+          <a href="#contact" class="social-link">f</a>
+          <a href="#resources" class="social-link"><i class="fa-solid fa-play"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="#automation-solutions">Process Automation</a></li>
+          <li><a href="#automation-solutions">SAP / ERP</a></li>
+          <li><a href="#automation-solutions">IoT & Industry 4.0</a></li>
+          <li><a href="#resources">Digital Insights</a></li>
+          <li><a href="#contact">Training & Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Industries</h5>
+        <ul>
+          <li><a href="#industries">Paper Manufacturing</a></li>
+          <li><a href="#industries">Oil & Gas</a></li>
+          <li><a href="#industries">Healthcare</a></li>
+          <li><a href="#industries">Discrete Mfg</a></li>
+          <li><a href="#industries">Food & Beverage</a></li>
+          <li><a href="#industries">Utilities</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#about">Our History</a></li>
+          <li><a href="#about">Leadership</a></li>
+          <li><a href="#contact">Careers</a></li>
+          <li><a href="#automation-solutions">Partners</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="#contact">Business Inquiries</a></li>
+          <li><a href="#contact">Support</a></li>
+          <li><a href="#resources">News & Events</a></li>
+          <li><a href="#resources">Case Studies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2025 SP Global Tech. All rights reserved.</span>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;">
+        <a href="#contact">Terms & Conditions</a>
+        <a href="#contact">Privacy Policy</a>
+        <a href="#contact">Cookie Notice</a>
+      </div>
+      <span style="font-size:11px;color:rgba(255,255,255,.3);">Source: Industry automation benchmark data, 2023.</span>
+    </div>
+  </footer>
+
+  <!-- =====================================================
+       WEBSITE INTERACTION SCRIPT
+       Handles smooth scrolling, active navigation state and card reveal.
+  ===================================================== -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const nav = document.querySelector("nav");
+      const navLinks = document.querySelectorAll(".nav-links a[href^='#']");
+      const scrollTargets = document.querySelectorAll("[id]");
+      const revealItems = document.querySelectorAll(
+        ".service-card, .automation-card, .promise-item, .ind-card, .res-card, .about-panel, .test-inner"
+      );
+
+      function getHeaderOffset() {
+        return nav ? nav.offsetHeight + 12 : 0;
+      }
+
+      function scrollToSection(targetId) {
+        const target = document.querySelector(targetId);
+        if (!target) return;
+
+        const targetTop = target.getBoundingClientRect().top + window.pageYOffset - getHeaderOffset();
+        window.scrollTo({
+          top: targetTop,
+          behavior: "smooth"
+        });
+      }
+
+      navLinks.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          const targetId = link.getAttribute("href");
+          if (!targetId || targetId === "#") return;
+
+          event.preventDefault();
+          scrollToSection(targetId);
+        });
+      });
+
+      function updateActiveNav() {
+        const offset = getHeaderOffset() + 80;
+        let currentId = "home";
+
+        scrollTargets.forEach(function (section) {
+          const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+          if (window.pageYOffset >= sectionTop - offset) {
+            currentId = section.id;
+          }
+        });
+
+        navLinks.forEach(function (link) {
+          link.classList.toggle("active", link.getAttribute("href") === "#" + currentId);
+        });
+      }
+
+      revealItems.forEach(function (item) {
+        item.classList.add("reveal-on-scroll");
+      });
+
+      const revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+
+      revealItems.forEach(function (item) {
+        revealObserver.observe(item);
+      });
+
+      window.addEventListener("scroll", updateActiveNav, { passive: true });
+      updateActiveNav();
+    });
+  </script>
+</body>
+</html>
